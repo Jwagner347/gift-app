@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import NewWishlist from './NewWishlist/NewWishlist';
+import WishlistBuilder from './containers/WishlistBuilder/WishlistBuilder';
+import Layout from './components/Layout/Layout';
 
 class App extends Component {
   state = {
@@ -20,18 +21,17 @@ class App extends Component {
       message = 'Remove wishlist';
       newWishlist = (
         <div>
-          <NewWishlist/>
+          <WishlistBuilder/>
         </div>
       );
     }
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to Wishlist App!</h1>
-        </header>
-        <button onClick={this.createWishlistHandler}>{message}</button>
-        {newWishlist}
+      <div>
+        <Layout>
+          <button onClick={this.createWishlistHandler}>{message}</button>
+          {newWishlist}
+        </Layout>
       </div>
     );
   }

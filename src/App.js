@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
 import WishlistBuilder from './containers/WishlistBuilder/WishlistBuilder';
+import ExistingWishlistBuilder from './containers/ExistingWishlistBuilder/ExistingWishlistBuilder';
 import Layout from './components/Layout/Layout';
 
 class App extends Component {
   state = {
-    createNewWishlist: false
+    createNewWishlist: false,
+    viewExistingWishlist: false
   }
 
   createWishlistHandler = () => {
     const doesShow = this.state.createNewWishlist;
     this.setState({createNewWishlist: !doesShow})
+  }
+
+  viewExistingWishlistHandler = () => {
+    this.setState({viewExistingWishlist: true})
   }
 
   render() {
@@ -26,11 +32,22 @@ class App extends Component {
       );
     }
 
+    let existingWishlist = null;
+    if (this.state.viewExistingWishlist) {
+      existingWishlist = (
+        <div>
+          <ExistingWishlistBuilder/>
+        </div>
+      );
+    }
+
     return (
       <div>
         <Layout>
           <button onClick={this.createWishlistHandler}>{message}</button>
           {newWishlist}
+          <button onClick={this.viewExistingWishlistHandler}>View your existing wishlist</button>
+          {existingWishlist}
         </Layout>
       </div>
     );

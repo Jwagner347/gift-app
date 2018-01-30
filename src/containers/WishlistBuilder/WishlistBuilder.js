@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 import Aux from '../../hoc/Aux';
 import Wishlist from '../../components/Wishlist/Wishlist';
@@ -40,6 +41,20 @@ class newWishlist extends Component {
     this.setState({wishlistItems});
   }
 
+  saveWishlistHandler = () => {
+    const wishlist = {
+    	wishlistItems: this.state.wishlistItems,
+    	name: this.state.name
+    }
+    axios.post('/wishlist/new', wishlist)
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }
+
   render() {
 
     return (
@@ -53,6 +68,7 @@ class newWishlist extends Component {
           handleChange={this.handleChange}
           removeItem={this.removeWishlistItemHandler}
           />
+        <button onClick={this.saveWishlistHandler}>Save Wishlist</button>
       </Aux>
     );
   }

@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import axios from 'axios';
 
 import Aux from '../../hoc/Aux';
-import Wishlist from '../../components/Wishlist/Wishlist';
+import NewWishlist from '../../components/NewWishlist/NewWishlist';
 
-class newWishlist extends Component {
+class NewWishlistBuilder extends Component {
 
   constructor(props) {
     super(props);
@@ -59,7 +59,7 @@ class newWishlist extends Component {
 
     return (
       <Aux>
-        <Wishlist
+        <NewWishlist
           wishlistName={this.state.name}
           inputNameHandler={this.inputNameHandler}
           wishlistItems={this.state.wishlistItems}
@@ -74,4 +74,4 @@ class newWishlist extends Component {
   }
 };
 
-export default newWishlist;
+export default NewWishlistBuilder;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import WishlistItem from './WishlistItem/WishlistItem';
+import WishlistItem from '../WishlistItem/WishlistItem';
 
 const wishlist = (props) => {
   let wishlistItems = null;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import WishlistBuilder from './containers/WishlistBuilder/WishlistBuilder';
+import NewWishlistBuilder from './containers/NewWishlistBuilder/NewWishlistBuilder';
 import ExistingWishlistBuilder from './containers/ExistingWishlistBuilder/ExistingWishlistBuilder';
 import Layout from './components/Layout/Layout';
 
@@ -27,7 +27,7 @@ class App extends Component {
       message = 'Remove wishlist';
       newWishlist = (
         <div>
-          <WishlistBuilder/>
+          <NewWishlistBuilder/>
         </div>
       );
     }
